@@ -129,8 +129,6 @@ resource "aws_lb_listener_rule" "target_group_routing" {
 
 #AUTOSCALING
 
-
-
 resource "aws_autoscaling_group" "frontend" {
   name                = "frontend-autoscaling-group"
   max_size            = 4

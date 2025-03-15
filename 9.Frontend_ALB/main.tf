@@ -27,7 +27,7 @@ resource "aws_lb_listener" "web_http" {
 
     fixed_response {
       content_type = "text/html"
-      message_body = "<h1>Hi ... This is Rohan from backend weblication load balancer</h1>"
+      message_body = "<h1>Hi ... This is Rohan from frontend weblication load balancer</h1>"
       status_code  = "200"
     }
   }
