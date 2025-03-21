@@ -306,15 +306,6 @@ resource "aws_security_group_rule" "vpn_to_rds" {
   source_security_group_id = module.vpn_sg.id
 }
 
-resource "aws_security_group_rule" "vpn_to_rds_80" {
-  type                     = "ingress"
-  from_port                = 80
-  to_port                  = 80
-  protocol                 = "tcp"
-  security_group_id        = module.mysql_sg.id
-  source_security_group_id = module.vpn_sg.id
-}
-
 
 
 # -------------------------------------
