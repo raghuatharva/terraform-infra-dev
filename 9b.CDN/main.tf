@@ -16,7 +16,7 @@ resource "aws_cloudfront_distribution" "expense" {
 
   aliases = ["${var.project}-cdn.${var.zone_name}"]
 
-  # dynamic content, evaluated at last no cache
+  # dynamic content, evaluated at last --> no cache
   default_cache_behavior {
     allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
     cached_methods   = ["GET", "HEAD"]
@@ -29,7 +29,8 @@ resource "aws_cloudfront_distribution" "expense" {
     cache_policy_id = data.aws_cloudfront_cache_policy.noCache.id
   }
 
-  # Cache behavior with precedence 0
+  # Cache behavior Ist: which means it checks for images in cache ; if its not there , it goes to default policy whcih goes to origin to get the data:
+   
   ordered_cache_behavior {
     path_pattern     = "/images/*"
     allowed_methods  = ["GET", "HEAD", "OPTIONS"]
@@ -44,7 +45,7 @@ resource "aws_cloudfront_distribution" "expense" {
     cache_policy_id = data.aws_cloudfront_cache_policy.cacheOptmised.id
   }
 
-  # Cache behavior with precedence 1
+  # Cache behavior IInd 
   ordered_cache_behavior {
     path_pattern     = "/static/*"
     allowed_methods  = ["GET", "HEAD", "OPTIONS"]

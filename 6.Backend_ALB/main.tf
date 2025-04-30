@@ -18,6 +18,8 @@ module "app_alb" {
 # WE ARE NOT ASSOCIATING TARGET GROUP HERE BECAUSE WE HAVENT HAD BACKEND INSTANCES ..  we associate them in the next stage
 # when we create (in order) backend instances --> target group ----> app ALB
 
+
+#Even if you app port is 8080; but alb listener listens on 80 or 443 and looks for listener rule ; if the listener rule says " go to that target group with port 8080 or 3000 ; it just goes there; "
 resource "aws_lb_listener" "http" {
   load_balancer_arn = module.app_alb.arn
   port              = "80"
@@ -54,7 +56,7 @@ module "records" {
 
   records = [
     {
-      name    = "*.app-dev"   #this dns name will become app-dev-rohanandlife.site
+      name    = "*.app-dev"   #this dns name will become somthing.app-dev-rohanandlife.site
       type    = "A"
       alias   = {
         name    = module.app_alb.dns_name

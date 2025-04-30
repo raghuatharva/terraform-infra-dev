@@ -7,6 +7,5 @@ locals {
     #              2. [0] here means get only the 1st subnet because we want to 
     #              create only 1 instance[cost saving strategy]
 
-  frontend_sg      = data.aws_ssm_parameter.frontend_sg.value
   bastion_sg       = data.aws_ssm_parameter.bastion_sg.value
 }

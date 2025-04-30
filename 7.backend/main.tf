@@ -119,10 +119,8 @@ resource "aws_lb_listener_rule" "target_group_routing" {
 
   condition {
     host_header {
-      values = ["backend.app-dev.${var.zone_name}"] #this means if someone access with this url means , it will  
-      #                                             access target group instances just we are specifying with dns ,thats all 
-      #                                            like amazon.com/cart , amazon.com/login --> diff. services need diff. domain
-      #                                      here we are specifying target group domain = backend.app-dev.rohanandlife.site , thats all
+      values = ["backend.app-dev.${var.zone_name}"]
+#this means if someone access with this url means , it will access target group instances just we are specifying with dns ,thats all  like amazon.com/cart , amazon.com/login --> diff. services need diff. domain here we are specifying target group domain = backend.app-dev.rohanandlife.site , thats all
     }
   }
 }

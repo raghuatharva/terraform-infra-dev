@@ -99,8 +99,8 @@ module "records" {
     {
       name    = "mysql-dev"
       type    = "CNAME"
-      ttl   = 50
-      records    = [module.db.db_instance_address] 
+      ttl   = 1
+      records    = [module.db.db_instance_address] #db_instance_address is a output block name used in source
       allow_overwrite = true
       }
     
