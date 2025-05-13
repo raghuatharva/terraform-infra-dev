@@ -88,6 +88,7 @@ resource "null_resource" "backend_delete" {
 }
 
 
+#targets are automatically come since we mentioned port and since instances and target group wil be in same vpc.
 resource "aws_lb_target_group" "backend" {
   name     = "backend"
   port     = 8080
